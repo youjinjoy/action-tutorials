@@ -1,0 +1,19 @@
+name: Context
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # - uses: actions/checkout@v4
+    - name: "context"
+      env:
+        COMMIT_ID: ${{ github.sha }}
+      run: echo "Commit id => $COMMIT_ID"
